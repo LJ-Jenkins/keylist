@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# keylist
+# keylist <img id="logo" src="man/figures/logo.png" align="right" width="17%" height="17%" />
 
 <!-- badges: start -->
 
