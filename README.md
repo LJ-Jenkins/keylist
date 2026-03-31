@@ -150,9 +150,12 @@ names(x) <- c("a", "a")
 #> Duplicate name: a
 
 x <- knlist(a = 1)
-names(x) <- NULL # allowed for klist, but not knlist.
+# name removal allowed for klist, but not knlist.
+names(x) <- NULL
 #> Error in `names<-.knlist`(`*tmp*`, value = NULL): Names cannot be removed from a knlist object.
-setNames(x, NA) # knlist doesn't accept "" or NA names.
+
+# knlist doesn't accept "" or NA names (like klist does).
+setNames(x, NA)
 #> Error in `names<-.knlist`(`*tmp*`, value = nm): Names cannot be NA.
 
 class(c(klist(1, a = 2), 2, list(3)))

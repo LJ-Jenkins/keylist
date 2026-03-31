@@ -103,8 +103,11 @@ x <- klist(1, a = 1)
 names(x) <- c("a", "a")
 
 x <- knlist(a = 1)
-names(x) <- NULL # allowed for klist, but not knlist.
-setNames(x, NA) # knlist doesn't accept "" or NA names.
+# name removal allowed for klist, but not knlist.
+names(x) <- NULL
+
+# knlist doesn't accept "" or NA names (like klist does).
+setNames(x, NA)
 
 class(c(klist(1, a = 2), 2, list(3)))
 c(klist(1, a = 2), a = 2, list(3))
