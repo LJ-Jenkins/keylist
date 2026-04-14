@@ -10,10 +10,10 @@ void knlist_unique_names(SEXP names)
     {
         SEXP ni = STRING_ELT(names, i);
         if (ni == NA_STRING)
-            error("Names cannot be <NA>.");
+            Rf_error("Names cannot be <NA>.");
 
         if (CHAR(ni)[0] == '\0')
-            error("All elements must be named.");
+            Rf_error("All elements must be named.");
     }
 
     SEXP dups = PROTECT(Rf_allocVector(STRSXP, n));
@@ -65,7 +65,7 @@ void knlist_unique_names(SEXP names)
         }
 
         UNPROTECT(1);
-        error(msg);
+        Rf_error("%s", msg);
     }
     UNPROTECT(1);
 }
@@ -155,7 +155,7 @@ void klist_unique_names(SEXP names)
         }
 
         UNPROTECT(1);
-        error(msg);
+        Rf_error("%s", msg);
     }
 
     UNPROTECT(1);

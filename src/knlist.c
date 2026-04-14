@@ -7,7 +7,7 @@ SEXP validate_knlist_node_c(SEXP x)
     SEXP names = getAttrib(x, R_NamesSymbol);
     if (names == R_NilValue)
     {
-        error("All elements must be named.");
+        Rf_error("All elements must be named.");
     }
 
     knlist_unique_names(names);
