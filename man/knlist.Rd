@@ -36,7 +36,7 @@ and converted to a knlist.}
 must be unique.}
 }
 \value{
-A list of class \code{knlist}. For \code{is.knlist()} a boolean.
+A list object of class \code{knlist}. For \code{is.knlist()} a boolean.
 }
 \description{
 Create a list with unique names/keys, erroring if any duplicate
@@ -60,8 +60,8 @@ try(knlist(b = 1, a = 2, a = 1)) # duplicate keys not allowed
 try(x[[1]] <- 1) # knlist only accepts character indexing for assignment
 
 # objects within a knlist are not subject to validation
-knlist(x = 1, list(a = 1, a = 2))
-try(knlist(x = 1, knlist(a = 1, a = 2))) # but nested knlists are
+knlist(x = 1, y = list(a = 1, a = 2))
+try(knlist(x = 1, y = knlist(a = 1, a = 2))) # but nested knlists are
 
 # recursively validate and convert to knlist
 x <- list(a = 1, b = list(x = 1, y = 2))

@@ -28,16 +28,16 @@
 #' [klist], [keylist].
 #' @note
 #' knlists compare names using C's `strcmp` function.
-#' @returns
-#' A list of class `knlist`. For `is.knlist()` a boolean.
+#' @return
+#' A list object of class `knlist`. For `is.knlist()` a boolean.
 #' @examples
 #' x <- knlist(a = 1, b = 2, c = 3)
 #' try(knlist(b = 1, a = 2, a = 1)) # duplicate keys not allowed
 #' try(x[[1]] <- 1) # knlist only accepts character indexing for assignment
 #'
 #' # objects within a knlist are not subject to validation
-#' knlist(x = 1, list(a = 1, a = 2))
-#' try(knlist(x = 1, knlist(a = 1, a = 2))) # but nested knlists are
+#' knlist(x = 1, y = list(a = 1, a = 2))
+#' try(knlist(x = 1, y = knlist(a = 1, a = 2))) # but nested knlists are
 #'
 #' # recursively validate and convert to knlist
 #' x <- list(a = 1, b = list(x = 1, y = 2))

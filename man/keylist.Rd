@@ -40,7 +40,7 @@ and converted to a keylist.}
 \item{after}{passed to \link{append}: a subscript, after which the values are to be appended.}
 }
 \value{
-A list of class \code{klist} or \code{knlist}. For \code{is.keylist()} a boolean.
+A list object of class \code{klist} or \code{knlist}. For \code{is.keylist()} a boolean.
 }
 \description{
 Create a list with unique keys (either fully named, \link{knlist}, or a

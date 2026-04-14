@@ -38,12 +38,12 @@ library(keylist)
 
 # klist - unnamed or named (if names present, they must be unique).
 klist(1, a = 2)
-klist(a = 1, a = 2)
+klist(1, a = 1, a = 2, b = 1, b = 2)
 
 # knlist - fully named and unique.
 knlist(a = 1, b = 2)
 knlist(1, b = 2)
-knlist(a = 1, a = 2)
+knlist(a = 1, a = 2, b = 1, b = 2)
 
 # keylist as more general function.
 class(keylist(1))
@@ -112,6 +112,10 @@ setNames(x, NA)
 class(c(klist(1, a = 2), 2, list(3)))
 c(klist(1, a = 2), a = 2, list(3))
 ```
+
+## Note
+
+All name comparison is done using C's `strcmp` function.
 
 ## Getting help
 

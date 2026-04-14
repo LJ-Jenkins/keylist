@@ -36,7 +36,7 @@ and converted to a klist.}
 must be unique.}
 }
 \value{
-A list of class \code{klist}. For \code{is.klist()} a boolean.
+A list object of class \code{klist}. For \code{is.klist()} a boolean.
 }
 \description{
 Create a named/unnamed list with unique keys, erroring if any duplicate

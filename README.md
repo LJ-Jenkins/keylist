@@ -34,9 +34,10 @@ klist(1, a = 2)
 #> 
 #> $a
 #> [1] 2
-klist(a = 1, a = 2)
-#> Error in klist(a = 1, a = 2): Names must be unique.
-#> Duplicate name: a
+klist(1, a = 1, a = 2, b = 1, b = 2)
+#> Error in `klist()`:
+#> ! Names must be unique.
+#> Duplicate names: a, b
 
 # knlist - fully named and unique.
 knlist(a = 1, b = 2)
@@ -46,10 +47,12 @@ knlist(a = 1, b = 2)
 #> $b
 #> [1] 2
 knlist(1, b = 2)
-#> Error in knlist(1, b = 2): All elements must be named.
-knlist(a = 1, a = 2)
-#> Error in knlist(a = 1, a = 2): Names must be unique.
-#> Duplicate name: a
+#> Error in `knlist()`:
+#> ! All elements must be named.
+knlist(a = 1, a = 2, b = 1, b = 2)
+#> Error in `knlist()`:
+#> ! Names must be unique.
+#> Duplicate names: a, b
 
 # keylist as more general function.
 class(keylist(1))
@@ -78,8 +81,9 @@ keylist(1, list(a = 1, a = 1))
 
 # each keylist validates its own level.
 keylist(1, keylist(a = 1, a = 1))
-#> Error in klist(...): Names must be unique.
-#> Duplicate name: a
+#> Error in `klist()`:
+#> ! Names must be unique.
+#> Duplicate names: a
 ```
 
 All nested elements of a list can be recursively turned into a keylist
@@ -88,8 +92,9 @@ when using one of the `as.*` variants.
 ``` r
 x <- list(1, list(a = 1, a = 1))
 as.keylist(x, .recursive = TRUE)
-#> Error in as.klist.list(x, ..., .recursive = .recursive): Names must be unique.
-#> Duplicate name: a
+#> Error in `as.klist.list()`:
+#> ! Names must be unique.
+#> Duplicate names: a
 ```
 
 ## Assignment and Modification
@@ -130,7 +135,8 @@ name.
 ``` r
 x <- knlist(a = 1)
 x[[1]] <- 1
-#> Error: Only character indexing is allowed for assignment into knlist objects
+#> Error:
+#> ! Only character indexing is allowed for assignment into knlist objects
 
 # extraction by index is allowed.
 x[[1]]
@@ -146,24 +152,32 @@ these methods.
 ``` r
 x <- klist(1, a = 1)
 names(x) <- c("a", "a")
-#> Error in `names<-.klist`(`*tmp*`, value = c("a", "a")): Names must be unique.
-#> Duplicate name: a
+#> Error in `names<-.klist`:
+#> ! Names must be unique.
+#> Duplicate names: a
 
 x <- knlist(a = 1)
 # name removal allowed for klist, but not knlist.
 names(x) <- NULL
-#> Error in `names<-.knlist`(`*tmp*`, value = NULL): Names cannot be removed from a knlist object.
+#> Error in `names<-.knlist`:
+#> ! Names cannot be removed from a knlist object.
 
 # knlist doesn't accept "" or NA names (like klist does).
 setNames(x, NA)
-#> Error in `names<-.knlist`(`*tmp*`, value = nm): Names cannot be NA.
+#> Error in `names<-.knlist`:
+#> ! Names cannot be <NA>.
 
 class(c(klist(1, a = 2), 2, list(3)))
 #> [1] "klist"
 c(klist(1, a = 2), a = 2, list(3))
-#> Error in c.klist(klist(1, a = 2), a = 2, list(3)): Names must be unique.
-#> Duplicate name: a
+#> Error in `c.klist()`:
+#> ! Names must be unique.
+#> Duplicate names: a
 ```
+
+## Note
+
+All name comparison is done using C’s `strcmp` function.
 
 ## Getting help
 

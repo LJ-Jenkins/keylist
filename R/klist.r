@@ -28,8 +28,8 @@
 #' [knlist], [keylist].
 #' @note
 #' klists compare names using C's `strcmp` function.
-#' @returns
-#' A list of class `klist`. For `is.klist()` a boolean.
+#' @return
+#' A list object of class `klist`. For `is.klist()` a boolean.
 #' @examples
 #' klist(a = 1, 2, b = 3)
 #' try(klist(1, a = 2, a = 1)) # duplicate keys not allowed
