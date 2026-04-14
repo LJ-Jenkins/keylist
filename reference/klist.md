@@ -64,9 +64,13 @@ For a list with unique keys of all names, see
 
 klists compare names using C's `strcmp` function.
 
+[as.list](https://rdrr.io/r/base/list.html) and
+[as.vector](https://rdrr.io/r/base/vector.html) methods for klist
+objects remove the class and return a base R list or vector.
+
 ## See also
 
-[knlist](https://lj-jenkins.github.io/keylist/reference/knlist.md),
+[knlist](https://lj-jenkins.github.io/keylist/reference/knlist.md) and
 [keylist](https://lj-jenkins.github.io/keylist/reference/keylist.md).
 
 ## Examples
