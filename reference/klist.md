@@ -47,7 +47,7 @@ c(...)
 
 ## Value
 
-A list of class `klist`. For `is.klist()` a boolean.
+A list object of class `klist`. For `is.klist()` a boolean.
 
 ## Details
 
@@ -84,7 +84,7 @@ klist(a = 1, 2, b = 3)
 #> 
 try(klist(1, a = 2, a = 1)) # duplicate keys not allowed
 #> Error in klist(1, a = 2, a = 1) : Names must be unique.
-#> Duplicate name: a
+#> Duplicate names: a
 
 # objects within a klist are not subject to validation
 klist(1, list(a = 1, a = 2))
@@ -101,7 +101,7 @@ klist(1, list(a = 1, a = 2))
 #> 
 try(klist(1, klist(a = 1, a = 2))) # but nested klists are
 #> Error in klist(a = 1, a = 2) : Names must be unique.
-#> Duplicate name: a
+#> Duplicate names: a
 
 # recursively validate and convert to klist
 x <- list(1, list(1, 2))
@@ -115,10 +115,10 @@ is.klist(klist(1)) # TRUE
 try(names(x) <- c("a", "a")) # names are validated when changed
 #> Error in `names<-.klist`(`*tmp*`, value = c("a", "a")) : 
 #>   Names must be unique.
-#> Duplicate name: a
+#> Duplicate names: a
 
 # c() method for klist objects also validates
 try(c(klist(a = 1), list(a = 3)))
 #> Error in c.klist(klist(a = 1), list(a = 3)) : Names must be unique.
-#> Duplicate name: a
+#> Duplicate names: a
 ```

@@ -18,8 +18,10 @@ keys (names) are found."><meta property="og:image" content="https://lj-jenkins.g
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
+<li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json"></form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/LJ-Jenkins/keylist/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul></div>
 
 
@@ -28,7 +30,7 @@ keys (names) are found."><meta property="og:image" content="https://lj-jenkins.g
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.png" class="logo" alt=""><h1>Create a List With Unique Keys (Named or Unnamed)</h1>
-
+      <small class="dont-index">Source: <a href="https://github.com/LJ-Jenkins/keylist/blob/main/R/klist.r" class="external-link"><code>R/klist.r</code></a></small>
       <div class="d-none name"><code>klist.Rd</code></div>
     </div>
 
@@ -82,7 +84,7 @@ must be unique.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>A list of class <code>klist</code>. For <code>is.klist()</code> a boolean.</p>
+    <p>A list object of class <code>klist</code>. For <code>is.klist()</code> a boolean.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
@@ -115,7 +117,7 @@ resulting klist's names are unique.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">klist</span><span class="op">(</span><span class="fl">1</span>, a <span class="op">=</span> <span class="fl">2</span>, a <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># duplicate keys not allowed</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Error in klist(1, a = 2, a = 1) : Names must be unique.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Duplicate name: a</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Duplicate names: a</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># objects within a klist are not subject to validation</span></span></span>
 <span class="r-in"><span><span class="fu">klist</span><span class="op">(</span><span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span>, a <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
@@ -132,7 +134,7 @@ resulting klist's names are unique.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu">klist</span><span class="op">(</span><span class="fl">1</span>, <span class="fu">klist</span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span>, a <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="co"># but nested klists are</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Error in klist(a = 1, a = 2) : Names must be unique.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Duplicate name: a</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Duplicate names: a</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># recursively validate and convert to klist</span></span></span>
 <span class="r-in"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></span>
@@ -146,12 +148,12 @@ resulting klist's names are unique.</p>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/names.html" class="external-link">names</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"a"</span><span class="op">)</span><span class="op">)</span> <span class="co"># names are validated when changed</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Error in `names&lt;-.klist`(`*tmp*`, value = c("a", "a")) : </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   Names must be unique.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Duplicate name: a</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Duplicate names: a</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># c() method for klist objects also validates</span></span></span>
 <span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/try.html" class="external-link">try</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu">klist</span><span class="op">(</span>a <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Error in c.klist(klist(a = 1), list(a = 3)) : Names must be unique.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Duplicate name: a</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Duplicate names: a</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

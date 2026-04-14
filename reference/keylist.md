@@ -62,7 +62,8 @@ keylist.append(klst, values, after = length(klst))
 
 ## Value
 
-A list of class `klist` or `knlist`. For `is.keylist()` a boolean.
+A list object of class `klist` or `knlist`. For `is.keylist()` a
+boolean.
 
 ## Details
 
@@ -109,7 +110,7 @@ keylist(a = 1, 2, b = 3) # default is a klist
 #> 
 try(keylist(1, a = 2, a = 1)) # duplicate keys not allowed
 #> Error in klist(...) : Names must be unique.
-#> Duplicate name: a
+#> Duplicate names: a
 
 x <- keylist(a = 1, b = 2, .named = TRUE) # create a knlist
 try(keylist(1, b = 2, .named = TRUE)) # unnamed keys not allowed
@@ -132,7 +133,7 @@ keylist(1, list(a = 1, a = 2))
 #> 
 try(keylist(1, keylist(a = 1, a = 2))) # but nested keylists are
 #> Error in klist(...) : Names must be unique.
-#> Duplicate name: a
+#> Duplicate names: a
 
 # recursively validate and convert to keylist
 x <- list(1, list(1, 2))
@@ -156,5 +157,5 @@ keylist.append(klist(a = 1), list(2, b = 3)) # append to a klist
 # c() method for keylist objects also validates
 try(c(keylist(a = 1), list(a = 3)))
 #> Error in c.klist(keylist(a = 1), list(a = 3)) : Names must be unique.
-#> Duplicate name: a
+#> Duplicate names: a
 ```

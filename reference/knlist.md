@@ -46,7 +46,7 @@ c(...)
 
 ## Value
 
-A list of class `knlist`. For `is.knlist()` a boolean.
+A list object of class `knlist`. For `is.knlist()` a boolean.
 
 ## Details
 
@@ -74,16 +74,26 @@ knlists compare names using C's `strcmp` function.
 x <- knlist(a = 1, b = 2, c = 3)
 try(knlist(b = 1, a = 2, a = 1)) # duplicate keys not allowed
 #> Error in knlist(b = 1, a = 2, a = 1) : Names must be unique.
-#> Duplicate name: a
+#> Duplicate names: a
 try(x[[1]] <- 1) # knlist only accepts character indexing for assignment
 #> Error : Only character indexing is allowed for assignment into knlist objects
 
 # objects within a knlist are not subject to validation
-knlist(x = 1, list(a = 1, a = 2))
-#> Error in knlist(x = 1, list(a = 1, a = 2)): All elements must be named.
-try(knlist(x = 1, knlist(a = 1, a = 2))) # but nested knlists are
+knlist(x = 1, y = list(a = 1, a = 2))
+#> $x
+#> [1] 1
+#> 
+#> $y
+#> $y$a
+#> [1] 1
+#> 
+#> $y$a
+#> [1] 2
+#> 
+#> 
+try(knlist(x = 1, y = knlist(a = 1, a = 2))) # but nested knlists are
 #> Error in knlist(a = 1, a = 2) : Names must be unique.
-#> Duplicate name: a
+#> Duplicate names: a
 
 # recursively validate and convert to knlist
 x <- list(a = 1, b = list(x = 1, y = 2))
@@ -97,10 +107,10 @@ is.knlist(knlist(a = 1)) # TRUE
 try(names(x) <- c("a", "a")) # names are validated when changed
 #> Error in `names<-.knlist`(`*tmp*`, value = c("a", "a")) : 
 #>   Names must be unique.
-#> Duplicate name: a
+#> Duplicate names: a
 
 # c() method for knlist objects also validates
 try(c(knlist(a = 1), list(a = 3)))
 #> Error in c.knlist(knlist(a = 1), list(a = 3)) : Names must be unique.
-#> Duplicate name: a
+#> Duplicate names: a
 ```
