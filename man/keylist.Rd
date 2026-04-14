@@ -64,6 +64,9 @@ a nested list structure into keylists, use
 }
 \note{
 keylists compare names using C's \code{strcmp} function.
+
+\link{as.list} and \link{as.vector} methods for keylist objects remove the class
+and return a base R list or vector.
 }
 \examples{
 keylist(a = 1, 2, b = 3) # default is a klist

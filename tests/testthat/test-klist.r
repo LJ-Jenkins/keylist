@@ -65,3 +65,15 @@ test_that("c() method for klist objects validates", {
   expect_error(c(x, a = 1, list(2), 2))
   expect_no_error(c(x, 1, list(list(a = 2)), 2))
 })
+
+test_that("main as.* methods work", {
+  x <- klist(a = 1, b = 2)
+  y <- list(a = 1, b = 2)
+  expect_equal(as.data.frame(x), as.data.frame(y))
+  expect_equal(as.numeric(x), as.numeric(y))
+  expect_equal(as.character(x), as.character(y))
+  expect_equal(as.logical(x), as.logical(y))
+  expect_equal(as.matrix(x), as.matrix(y))
+  expect_equal(as.vector(x), as.vector(y))
+  expect_equal(as.array(x), as.array(y))
+})

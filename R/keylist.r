@@ -42,6 +42,9 @@
 #' [klist] and [knlist].
 #' @note
 #' keylists compare names using C's `strcmp` function.
+#'
+#' [as.list] and [as.vector] methods for keylist objects remove the class
+#' and return a base R list or vector.
 #' @return
 #' A list object of class `klist` or `knlist`. For `is.keylist()` a boolean.
 #' @examples

@@ -53,6 +53,9 @@ For a list with unique keys of names and indexes, see \link{klist}.
 }
 \note{
 knlists compare names using C's \code{strcmp} function.
+
+\link{as.list} and \link{as.vector} methods for klist objects remove the class
+and return a base R list or vector.
 }
 \examples{
 x <- knlist(a = 1, b = 2, c = 3)
@@ -76,5 +79,5 @@ try(names(x) <- c("a", "a")) # names are validated when changed
 try(c(knlist(a = 1), list(a = 3)))
 }
 \seealso{
-\link{klist}, \link{keylist}.
+\link{klist} and \link{keylist}.
 }

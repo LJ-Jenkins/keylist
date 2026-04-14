@@ -25,9 +25,12 @@
 #'
 #' For a list with unique keys of all names, see [knlist].
 #' @seealso
-#' [knlist], [keylist].
+#' [knlist] and [keylist].
 #' @note
 #' klists compare names using C's `strcmp` function.
+#'
+#' [as.list] and [as.vector] methods for klist objects remove the class
+#' and return a base R list or vector.
 #' @return
 #' A list object of class `klist`. For `is.klist()` a boolean.
 #' @examples
@@ -88,6 +91,30 @@ as.klist.list <- function(x, ..., .recursive = FALSE) {
 as.list.klist <- function(x, ...) {
   class(x) <- setdiff(class(x), "klist")
   x
+}
+
+#' @export
+as.vector.klist <- function(x, mode = "any") {
+  if (mode == "any" || mode == "list") {
+    as.list(x)
+  } else {
+    as.vector(as.list(x), mode = mode)
+  }
+}
+
+#' @export
+as.data.frame.klist <- function(x, ...) {
+  as.data.frame(as.list(x), ...)
+}
+
+#' @export
+as.array.klist <- function(x, ...) {
+  as.array(as.list(x), ...)
+}
+
+#' @export
+as.matrix.klist <- function(x, ...) {
+  as.matrix(as.list(x), ...)
 }
 
 #' @export
