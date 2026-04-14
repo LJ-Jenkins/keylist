@@ -1,6 +1,6 @@
 Package: keylist
 Title: Lightweight List Extensions that Enforce Unique Keys
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R: 
     person("Luke", "Jenkins", , "luke-jenkins-dev@outlook.com", role = c("aut", "cre", "cph"), comment = c(ORCID = "0000-0002-7206-7242"))
 Description: Provides two lightweight keylist S3 classes `klist` and `knlist`: extensions to lists that enforce unique keys, either unnamed and named or fully named.
