@@ -82,7 +82,7 @@ is.keylist <- function(x) inherits(x, c("klist", "knlist"))
 #' @rdname keylist
 #' @export
 as.keylist <- function(x, ...) {
-  UseMethod("as.keylist", x)
+  UseMethod("as.keylist")
 }
 
 #' @rdname keylist

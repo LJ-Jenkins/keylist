@@ -67,7 +67,7 @@ as.klist <- function(x, ...) {
 #' @rdname klist
 #' @export
 as.klist.default <- function(x, ..., .recursive = FALSE) {
-  x <- as.list(x)
+  x <- as.list(x, ...)
   if (isTRUE(.recursive)) {
     .Call(validate_klist_list_c, x)
   } else {
@@ -110,8 +110,7 @@ print.klist <- function(x, ...) {
 
 #' @export
 "[.klist" <- function(x, i, value) {
-  x <- NextMethod()
-  .Call(if_list_force_class, x, "klist")
+  .Call(if_list_force_class, NextMethod(), "klist")
 }
 
 # this will cause setNames to change too
@@ -119,13 +118,11 @@ print.klist <- function(x, ...) {
 #' @rdname klist
 #' @export
 "names<-.klist" <- function(x, value) {
-  x <- NextMethod()
-  .Call(validate_klist_node_c, x)
+  .Call(validate_klist_node_c, NextMethod())
 }
 
 #' @rdname klist
 #' @export
 c.klist <- function(...) {
-  x <- NextMethod()
-  .Call(validate_klist_node_c, as.list(x))
+  .Call(validate_klist_node_c, NextMethod())
 }

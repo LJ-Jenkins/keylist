@@ -120,8 +120,7 @@ stop_non_chr_assignment <- function(i) {
 
 #' @export
 "[.knlist" <- function(x, i, value) {
-  x <- NextMethod()
-  .Call(if_list_force_class, x, "knlist")
+  .Call(if_list_force_class, NextMethod(), "knlist")
 }
 
 #' @export
@@ -144,13 +143,11 @@ stop_non_chr_assignment <- function(i) {
   if (is.null(value)) {
     stop("Names cannot be removed from a knlist object.")
   }
-  x <- NextMethod()
-  .Call(validate_knlist_node_c, x)
+  .Call(validate_knlist_node_c, NextMethod())
 }
 
 #' @rdname knlist
 #' @export
 c.knlist <- function(...) {
-  x <- NextMethod()
-  .Call(validate_knlist_node_c, as.list(x))
+  .Call(validate_knlist_node_c, NextMethod())
 }
