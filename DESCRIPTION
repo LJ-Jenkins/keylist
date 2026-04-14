@@ -1,14 +1,15 @@
 Package: keylist
-Title: Lightweight List Extensions that Enforce Unique Keys.
+Title: Lightweight List Extensions that Enforce Unique Keys
 Version: 0.0.0.9000
 Authors@R: 
     person("Luke", "Jenkins", , "luke-jenkins-dev@outlook.com", role = c("aut", "cre", "cph"), comment = c(ORCID = "0000-0002-7206-7242"))
-Description: Provides two lightweight keylist S3 classes `klist` and `knlist`: extensions to lists that enforce unique keys.
+Description: Provides two lightweight keylist S3 classes `klist` and `knlist`: extensions to lists that enforce unique keys, either unnamed and named or fully named.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
-URL: https://lj-jenkins.github.io/keylist/
+URL: https://lj-jenkins.github.io/keylist/, https://github.com/LJ-Jenkins/keylist
+BugReports: https://github.com/LJ-Jenkins/keylist/issues
