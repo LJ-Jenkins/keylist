@@ -1,6 +1,7 @@
 # keylist
 
-Lightweight `list` extensions that enforce unique keys.
+Lightweight `list` extensions that enforce unique keys, ensuring
+predictable key-value access.
 
 ## Installation
 
@@ -20,8 +21,12 @@ pak::pak("LJ-Jenkins/keylist")
 ## Overview
 
 keylist provides two lightweight keylist S3 classes `klist` and
-`knlist`: extensions to `list` that enforce unique keys. `klist` accepts
-unnamed and named elements whilst `knlist` only accepts named elements.
+`knlist`: extensions of `list` that enforce unique keys. `klist` accepts
+both unnamed and named elements, while `knlist` only accepts named
+elements.
+
+`knlist` behaves similarly to Python dictionaries/dicts and can serve as
+a more idiomatic R, copy-on-modify alternative to environments.
 
 ``` r
 library(keylist)

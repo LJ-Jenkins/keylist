@@ -11,8 +11,8 @@
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Lightweight List Extensions that Enforce Unique Keys">
-<meta name="description" content="Provides two lightweight keylist S3 classes `klist` and `knlist`: extensions to lists that enforce unique keys, either unnamed and/or named or fully named.">
-<meta property="og:description" content="Provides two lightweight keylist S3 classes `klist` and `knlist`: extensions to lists that enforce unique keys, either unnamed and/or named or fully named.">
+<meta name="description" content="Provides two lightweight keylist S3 classes `klist` and `knlist`: extensions of list that enforce unique keys, supporting either mixed named/unnamed elements or fully named elements, ensuring predictable key-value access.">
+<meta property="og:description" content="Provides two lightweight keylist S3 classes `klist` and `knlist`: extensions of list that enforce unique keys, supporting either mixed named/unnamed elements or fully named elements, ensuring predictable key-value access.">
 <meta property="og:image" content="https://lj-jenkins.github.io/keylist/logo.png">
 </head>
 <body>
@@ -54,7 +54,7 @@
 </div>
 <!-- badges: start -->
 <!-- badges: end -->
-<p>Lightweight <code>list</code> extensions that enforce unique keys.</p>
+<p>Lightweight <code>list</code> extensions that enforce unique keys, ensuring predictable key-value access.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -69,7 +69,8 @@
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
-<p>keylist provides two lightweight keylist S3 classes <code>klist</code> and <code>knlist</code>: extensions to <code>list</code> that enforce unique keys. <code>klist</code> accepts unnamed and named elements whilst <code>knlist</code> only accepts named elements.</p>
+<p>keylist provides two lightweight keylist S3 classes <code>klist</code> and <code>knlist</code>: extensions of <code>list</code> that enforce unique keys. <code>klist</code> accepts both unnamed and named elements, while <code>knlist</code> only accepts named elements.</p>
+<p><code>knlist</code> behaves similarly to Python dictionaries/dicts and can serve as a more idiomatic R, copy-on-modify alternative to environments.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://lj-jenkins.github.io/keylist/">keylist</a></span><span class="op">)</span></span>
 <span></span>
