@@ -11,7 +11,13 @@ Lightweight `list` extensions that enforce unique keys.
 
 ## Installation
 
-You can install the development version of keylist like so:
+Install the latest release of keylist from CRAN.
+
+``` r
+install.packages("keylist")
+```
+
+You can install the development version from GitHub.
 
 ``` r
 # install.packages("pak")
