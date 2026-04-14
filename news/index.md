@@ -1,5 +1,5 @@
 # Changelog
 
-## keylist (development version)
+## keylist 1.0.0
 
 - Initial CRAN submission.
