@@ -120,6 +120,7 @@ as.matrix.klist <- function(x, ...) {
 #' @export
 print.klist <- function(x, ...) {
   x <- as.list(x) # to get rid of the class attr
+  cat("<keylist::klist>\n")
   NextMethod()
 }
 

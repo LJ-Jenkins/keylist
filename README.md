@@ -33,13 +33,15 @@ both unnamed and named elements, while `knlist` only accepts named
 elements.
 
 `knlist` behaves similarly to Python dictionaries/dicts and can serve as
-a more idiomatic R, copy-on-modify alternative to environments.
+a more idiomatic R, copy-on-modify alternative without reference
+semantics.
 
 ``` r
 library(keylist)
 
 # klist - unnamed or named (if names present, they must be unique).
 klist(1, a = 2)
+#> <keylist::klist>
 #> [[1]]
 #> [1] 1
 #> 
@@ -52,6 +54,7 @@ klist(1, a = 1, a = 2, b = 1, b = 2)
 
 # knlist - fully named and unique.
 knlist(a = 1, b = 2)
+#> <keylist::knlist>
 #> $a
 #> [1] 1
 #> 
@@ -80,6 +83,7 @@ also be keylists.
 ``` r
 # input list separate entity.
 keylist(1, list(a = 1, a = 1))
+#> <keylist::klist>
 #> [[1]]
 #> [1] 1
 #> 

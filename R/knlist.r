@@ -122,6 +122,7 @@ as.matrix.knlist <- function(x, ...) {
 #' @export
 print.knlist <- function(x, ...) {
   x <- as.list(x) # to get rid of the class attr
+  cat("<keylist::knlist>\n")
   NextMethod()
 }
 

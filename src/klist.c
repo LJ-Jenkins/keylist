@@ -1,16 +1,17 @@
+#define R_NO_REMAP
 #include <R.h>
 #include <Rinternals.h>
 #include "utils.h"
 
 SEXP validate_klist_node_c(SEXP x)
 {
-    SEXP names = getAttrib(x, R_NamesSymbol);
+    SEXP names = Rf_getAttrib(x, R_NamesSymbol);
     if (names != R_NilValue)
     {
         klist_unique_names(names);
     }
 
-    setAttrib(x, R_ClassSymbol, Rf_mkString("klist"));
+    Rf_setAttrib(x, R_ClassSymbol, Rf_mkString("klist"));
 
     return x;
 }
@@ -30,7 +31,7 @@ SEXP validate_klist_list_c(SEXP x)
         validate_klist_list_c(VECTOR_ELT(x, i));
     }
 
-    setAttrib(x, R_ClassSymbol, Rf_mkString("klist"));
+    Rf_setAttrib(x, R_ClassSymbol, Rf_mkString("klist"));
 
     return x;
 }
