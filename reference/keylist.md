@@ -103,6 +103,7 @@ objects remove the class and return a base R list or vector.
 
 ``` r
 keylist(a = 1, 2, b = 3) # default is a klist
+#> <keylist::klist>
 #> $a
 #> [1] 1
 #> 
@@ -124,6 +125,7 @@ try(x[[1]] <- 1) # knlist only accepts character indexing for assignment
 
 # objects within a keylist are not subject to validation
 keylist(1, list(a = 1, a = 2))
+#> <keylist::klist>
 #> [[1]]
 #> [1] 1
 #> 
@@ -149,6 +151,7 @@ is.keylist(klist(1)) && is.keylist(knlist(a = 1)) # TRUE
 #> [1] TRUE
 
 keylist.append(klist(a = 1), list(2, b = 3)) # append to a klist
+#> <keylist::klist>
 #> $a
 #> [1] 1
 #> 

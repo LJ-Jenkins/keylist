@@ -77,6 +77,7 @@ objects remove the class and return a base R list or vector.
 
 ``` r
 klist(a = 1, 2, b = 3)
+#> <keylist::klist>
 #> $a
 #> [1] 1
 #> 
@@ -92,6 +93,7 @@ try(klist(1, a = 2, a = 1)) # duplicate keys not allowed
 
 # objects within a klist are not subject to validation
 klist(1, list(a = 1, a = 2))
+#> <keylist::klist>
 #> [[1]]
 #> [1] 1
 #> 

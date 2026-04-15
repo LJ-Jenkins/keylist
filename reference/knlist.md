@@ -84,6 +84,7 @@ try(x[[1]] <- 1) # knlist only accepts character indexing for assignment
 
 # objects within a knlist are not subject to validation
 knlist(x = 1, y = list(a = 1, a = 2))
+#> <keylist::knlist>
 #> $x
 #> [1] 1
 #> 
