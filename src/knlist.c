@@ -5,14 +5,19 @@
 
 SEXP validate_knlist_node_c(SEXP x)
 {
-    SEXP names = Rf_getAttrib(x, R_NamesSymbol);
+    SEXP names = PROTECT(Rf_getAttrib(x, R_NamesSymbol));
     if (names == R_NilValue)
     {
+        UNPROTECT(1);
         Rf_error("All elements must be named.");
     }
 
     knlist_unique_names(names);
-    Rf_setAttrib(x, R_ClassSymbol, Rf_mkString("knlist"));
+    UNPROTECT(1);
+
+    SEXP klass = PROTECT(Rf_mkString("knlist"));
+    Rf_setAttrib(x, R_ClassSymbol, klass);
+    UNPROTECT(1);
 
     return x;
 }
@@ -32,7 +37,9 @@ SEXP validate_knlist_list_c(SEXP x)
         validate_knlist_list_c(VECTOR_ELT(x, i));
     }
 
-    Rf_setAttrib(x, R_ClassSymbol, Rf_mkString("knlist"));
+    SEXP klass = PROTECT(Rf_mkString("knlist"));
+    Rf_setAttrib(x, R_ClassSymbol, klass);
+    UNPROTECT(1);
 
     return x;
 }

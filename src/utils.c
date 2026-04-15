@@ -172,6 +172,7 @@ void klist_unique_names(SEXP names)
     UNPROTECT(1);
 }
 
+// no arg protection as only called from R
 SEXP if_list_force_class(SEXP x, SEXP new_class)
 {
     if (TYPEOF(x) == VECSXP)

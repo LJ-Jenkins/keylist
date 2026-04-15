@@ -5,13 +5,16 @@
 
 SEXP validate_klist_node_c(SEXP x)
 {
-    SEXP names = Rf_getAttrib(x, R_NamesSymbol);
+    SEXP names = PROTECT(Rf_getAttrib(x, R_NamesSymbol));
     if (names != R_NilValue)
     {
         klist_unique_names(names);
     }
+    UNPROTECT(1);
 
-    Rf_setAttrib(x, R_ClassSymbol, Rf_mkString("klist"));
+    SEXP klass = PROTECT(Rf_mkString("klist"));
+    Rf_setAttrib(x, R_ClassSymbol, klass);
+    UNPROTECT(1);
 
     return x;
 }
@@ -31,7 +34,9 @@ SEXP validate_klist_list_c(SEXP x)
         validate_klist_list_c(VECTOR_ELT(x, i));
     }
 
-    Rf_setAttrib(x, R_ClassSymbol, Rf_mkString("klist"));
+    SEXP klass = PROTECT(Rf_mkString("klist"));
+    Rf_setAttrib(x, R_ClassSymbol, klass);
+    UNPROTECT(1);
 
     return x;
 }
