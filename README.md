@@ -5,6 +5,10 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/keylist)](https://CRAN.R-project.org/package=keylist)
+[![status](https://tinyverse.netlify.app/badge/keylist)](https://doi.org/10.32614/CRAN.package.keylist)
+[![R-CMD-check](https://github.com/LJ-Jenkins/keylist/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/LJ-Jenkins/keylist/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 Lightweight `list` extensions that enforce unique keys, ensuring
