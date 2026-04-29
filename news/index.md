@@ -1,7 +1,5 @@
 # Changelog
 
-## keylist 1.0.0
+## keylist (development version)
 
-CRAN release: 2026-04-27
-
-- Initial CRAN submission.
+- Added a `NEWS.md` file to track changes to the package.
