@@ -8,7 +8,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/LJ-Jenkins/keylist/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/LJ-Jenkins/keylist/blob/v1.0.0/DESCRIPTION)
 
 Jenkins L (2026). *keylist: Lightweight List Extensions that Enforce
 Unique Keys*. R package version 1.0.0,
