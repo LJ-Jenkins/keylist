@@ -8,12 +8,14 @@ predictable key-value access.
 Install the latest release of keylist from CRAN.
 
 ``` r
+
 install.packages("keylist")
 ```
 
 You can install the development version from GitHub.
 
 ``` r
+
 # install.packages("pak")
 pak::pak("LJ-Jenkins/keylist")
 ```
@@ -30,6 +32,7 @@ a more idiomatic R, copy-on-modify alternative without reference
 semantics.
 
 ``` r
+
 library(keylist)
 
 # klist - unnamed or named (if names present, they must be unique).
@@ -74,6 +77,7 @@ operates on its own level so for validation of nested elements they must
 also be keylists.
 
 ``` r
+
 # input list separate entity.
 keylist(1, list(a = 1, a = 1))
 #> <keylist::klist>
@@ -98,6 +102,7 @@ All nested elements of a list can be recursively turned into a keylist
 when using one of the `as.*` variants.
 
 ``` r
+
 x <- list(1, list(a = 1, a = 1))
 as.keylist(x, .recursive = TRUE)
 #> Error in `as.klist.list()`:
@@ -114,6 +119,7 @@ there is no way of assigning a duplicate key using the normal R methods
 of `[`, `[[` and `$`. See this example:
 
 ``` r
+
 x <- list(1, a = 2, 3, b = 4)
 x[1] <- list(x = 1)
 x[1] # remains unnamed.
@@ -141,6 +147,7 @@ However, assigning by position could enable a non-named element for a
 name.
 
 ``` r
+
 x <- knlist(a = 1)
 x[[1]] <- 1
 #> Error:
@@ -159,6 +166,7 @@ includes S3 methods for both `klist` and `knlist` for these functions to
 ensure that duplicate keys are not added from these methods.
 
 ``` r
+
 x <- klist(1, a = 1)
 names(x) <- c("a", "a")
 #> Error in `names<-.klist`:
