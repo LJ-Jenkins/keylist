@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# keylist <img id="logo" src="man/figures/logo.png" align="right" width="17%" height="17%" />
+# keylist <a href="https://lj-jenkins.github.io/keylist/"><img src="man/figures/logo.png" align="right" height="120" alt="keylist website" /></a>
 
 <!-- badges: start -->
 
